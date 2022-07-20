@@ -28,8 +28,8 @@ class _MovieDetailViewState extends State<MovieDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
             color: AppColor.backgroundColor,
             child: Padding(
@@ -280,52 +280,62 @@ class _MovieDetailViewState extends State<MovieDetailView> {
 
   Widget _buildCastList() {
     return BlocBuilder<CastBloc, CastMovieState>(builder: ((context, state) {
-      return state.casts.isNotEmpty
-          ? SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(state.casts.length, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 64,
-                          height: 64,
-                          decoration: state.casts[index].profilePath.isNotEmpty
-                              ? BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.amberAccent,
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                    CommonConstants.profilePath +
-                                        state.casts[index].profilePath
-                                            .toString(),
-                                  )))
-                              : const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.amberAccent,
-                                ),
+      return state.casts != null
+          ? state.casts!.isNotEmpty
+              ? SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(state.casts!.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 64,
+                              height: 64,
+                              decoration:
+                                  state.casts![index].profilePath.isNotEmpty
+                                      ? BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.amberAccent,
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                            CommonConstants.profilePath +
+                                                state.casts![index].profilePath
+                                                    .toString(),
+                                          )))
+                                      : const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.amberAccent,
+                                        ),
+                            ),
+                            const SizedBox(
+                              height: 8.0,
+                            ),
+                            Text(
+                              state.casts![index].name,
+                              style: const TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
-                        Text(
-                          state.casts[index].name,
-                          style: const TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }).toList(),
+                      );
+                    }).toList(),
+                  ),
+                )
+              : const Center(child: CircularProgressIndicator())
+          : const Center(
+              child: Text(
+              'Loading error !!!',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.white,
               ),
-            )
-          : const Center(child: CircularProgressIndicator());
+            ));
     }));
   }
 

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macpilip/FlutterProjects/muvi/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/macpilip/AndroidStudioProjects/Muvi/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/macpilip/FlutterProjects/muvi/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/macpilip/AndroidStudioProjects/Muvi/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

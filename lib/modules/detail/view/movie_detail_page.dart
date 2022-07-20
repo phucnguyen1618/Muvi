@@ -26,7 +26,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             repositoryImpl: DataMuviRepositoryImpl(
               DataMuviAPI(getIt.get()),
             ),
-          )..add(MovieDetailEvent(movieId: widget.movieId)),
+          )..add(MovieDetailEvent(
+              movieId: widget.movieId,
+            )),
         ),
         BlocProvider(
           create: (_) => CastBloc(

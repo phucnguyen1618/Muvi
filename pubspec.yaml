@@ -45,6 +45,7 @@ dependencies:
   shimmer: ^2.0.0
   intl: ^0.17.0
   easy_localization: ^3.0.0
+  get: ^4.6.5
   muvi_api:
     path: external_library/muvi_api
 

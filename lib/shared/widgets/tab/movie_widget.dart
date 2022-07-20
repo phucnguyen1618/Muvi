@@ -16,7 +16,7 @@ class MovieWidget extends StatefulWidget {
 
 class _MovieWidgetState extends State<MovieWidget> {
   final _upcomingScrollController = ScrollController();
-
+ 
   @override
   void initState() {
     super.initState();
