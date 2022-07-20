@@ -18,9 +18,9 @@ class MovieDetailState extends Equatable {
 }
 
 class CastMovieState extends Equatable {
-  final List<Cast> casts;
+  final List<Cast>? casts;
 
-  const CastMovieState({required this.casts});
+  const CastMovieState({this.casts});
 
   CastMovieState copyWith({List<Cast>? castList}) {
     return CastMovieState(casts: castList ?? casts);

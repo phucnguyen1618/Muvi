@@ -83,7 +83,7 @@ class HomeBloc extends Bloc<HomeEvent, MovieFetchState> {
     try {
       if (state.status == MovieFetchStatus.initial) {
         MovieResponse responseUpcoming =
-            await repositoryImpl.upComing(CommonConstants.apiKey, page: 1);
+            await repositoryImpl.upComing(CommonConstants.apiKey, page: state.movies4.length ~/ 20 + 1);
         emit(state.copyWith(
           status: MovieFetchStatus.success,
           movies4: responseUpcoming.movies,

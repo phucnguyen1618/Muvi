@@ -23,7 +23,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
       return emit(state.copyWith(
         detail: detailResponse.movieDetail,
       ));
-    } catch (error) {
+    } catch (error) { 
       emit(state.copyWith());
     }
   }
@@ -33,7 +33,7 @@ class CastBloc extends Bloc<CastMovieEvent, CastMovieState> {
   final DataMuviRepositoryImpl repositoryImpl;
 
   CastBloc({required this.repositoryImpl})
-      : super(const CastMovieState(casts: [])) {
+      : super(const CastMovieState()) {
     on<CastMovieEvent>(_onFetchCastMovieList);
   }
 
@@ -46,9 +46,7 @@ class CastBloc extends Bloc<CastMovieEvent, CastMovieState> {
         castList: castResponse.castList,
       ));
     } catch (error) {
-      emit(state.copyWith(
-        castList: [],
-      ));
+      emit(state.copyWith());
     }
   }
 }
